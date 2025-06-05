@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../css/style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <title>Bloomy</title>
+    <link rel="icon" type="image/x-icon" href="../img/icon.svg" />
+  </head>
+  <body>
+    <!-- Статичный хедер -->
+    <header class="static-header">
+      <div class="header-container">
+        <div class="logo">Логотип</div>
+        <nav class="desktop-nav">
+          <ul>
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Услуги</a></li>
+          </ul>
+        </nav>
+        <button class="burger-btn" aria-label="Меню" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Липкий хедер -->
+    <header class="sticky-header">
+      <div class="header-container">
+        <div class="logo">Логотип</div>
+        <nav class="desktop-nav">
+          <ul>
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Услуги</a></li>
+            <li><a href="#">Контакты</a></li>
+          </ul>
+        </nav>
+        <button class="burger-btn" aria-label="Меню" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Мобильное меню -->
+    <div class="mobile-menu">
+      <button class="close-btn" aria-label="Закрыть меню">
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <ul>
+          <li><a href="#">Главная</a></li>
+          <li><a href="#">О нас</a></li>
+          <li><a href="#">Услуги</a></li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Основное содержимое -->
+    <main>
+      <section class="hero-container">
+        <div>Главный баннер</div>
+      </section>
+      <section class="about-container">
+        <div>О нас</div>
+      </section>
+      <section class="main-container">
+        <div>Основной контент</div>
+      </section>
+    </main>
+
+    <!-- Подключение JavaScript -->
+    <script src="../scripts/script.js"></script>
+  </body>
+</html>
