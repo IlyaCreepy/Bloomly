@@ -1,23 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // 1. Получаем все необходимые элементы
   const stickyHeader = document.querySelector(".sticky-header");
   const mainContainer = document.querySelector(".main-container");
+  const stockContainer = document.querySelector(".stock-container");
   const burgerBtns = document.querySelectorAll(".burger-btn");
   const mobileMenu = document.querySelector(".mobile-menu");
   const closeBtn = document.querySelector(".close-btn");
   const menuLinks = document.querySelectorAll(".mobile-menu a");
   const staticHeader = document.querySelector(".static-header");
 
-  // 2. Проверяем, что элементы существуют
-  if (!stickyHeader || !mainContainer || !burgerBtns.length || !mobileMenu) {
-    console.error("Не найдены необходимые элементы DOM");
-    return;
-  }
-
-  // 3. Функция для sticky header
   const initStickyHeader = () => {
     const headerHeight = stickyHeader.offsetHeight;
-    const triggerPoint = mainContainer.offsetTop - headerHeight;
+    const triggerPoint = stockContainer.offsetTop - headerHeight;
 
     const handleScroll = () => {
       if (window.scrollY >= triggerPoint) {
@@ -30,28 +23,23 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Инициализация при загрузке
+    handleScroll();
   };
 
-  // 4. Функция для мобильного меню
   const initMobileMenu = () => {
     const toggleMenu = (show) => {
       const isOpen = show ?? !mobileMenu.classList.contains("active");
 
-      // Переключаем состояние меню
       mobileMenu.classList.toggle("active", isOpen);
 
-      // Переключаем бургер-кнопки
       burgerBtns.forEach((btn) => {
         btn.classList.toggle("active", isOpen);
         btn.setAttribute("aria-expanded", isOpen);
       });
 
-      // Блокируем скролл
       document.body.style.overflow = isOpen ? "hidden" : "";
     };
 
-    // Обработчики событий
     burgerBtns.forEach((btn) => {
       btn.addEventListener("click", () => toggleMenu());
     });
@@ -75,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
-  // 5. Обработчик ресайза
   const handleResize = () => {
     if (window.innerWidth > 768 && mobileMenu.classList.contains("active")) {
       mobileMenu.classList.remove("active");
@@ -87,14 +74,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  // 6. Инициализация всех функций
   initStickyHeader();
   initMobileMenu();
   window.addEventListener("resize", handleResize);
 
-  // 7. Удаление обработчиков при unmount (для SPA)
   return () => {
     window.removeEventListener("scroll", initStickyHeader);
     window.removeEventListener("resize", handleResize);
   };
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const heroSection = document.querySelector(".hero-container");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animated");
+          observer.unobserve(entry.target); // Отключаем после срабатывания
+        }
+      });
+    },
+    {
+      threshold: 0.3, // Срабатывает при 30% видимости
+      rootMargin: "0px 0px -100px 0px", // Буферная зона снизу
+    }
+  );
+
+  observer.observe(heroSection);
 });
