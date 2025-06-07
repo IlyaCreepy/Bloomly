@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const stickyHeader = document.querySelector(".sticky-header");
   const mainContainer = document.querySelector(".main-container");
-  const stockContainer = document.querySelector(".stock-container");
+  const aboutContainer = document.querySelector(".about-container");
   const burgerBtns = document.querySelectorAll(".burger-btn");
   const mobileMenu = document.querySelector(".mobile-menu");
   const closeBtn = document.querySelector(".close-btn");
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const initStickyHeader = () => {
     const headerHeight = stickyHeader.offsetHeight;
-    const triggerPoint = stockContainer.offsetTop - headerHeight;
+    const triggerPoint = aboutContainer.offsetTop - headerHeight;
 
     const handleScroll = () => {
       if (window.scrollY >= triggerPoint) {
@@ -86,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", () => {
   const heroSection = document.querySelector(".hero-container");
+  const stockContainer = document.querySelector(".stock-container");
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -103,4 +104,5 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   observer.observe(heroSection);
+  observer.observe(stockContainer);
 });

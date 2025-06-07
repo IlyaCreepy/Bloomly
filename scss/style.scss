@@ -290,6 +290,7 @@ body {
   font-size: 2vw;
   margin-top: 32vw;
   cursor: pointer;
+  position: absolute;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 
@@ -312,11 +313,6 @@ body {
   text-align: center;
   overflow: hidden;
 }
-.hero-content {
-  z-index: 2;
-  text-align: center;
-}
-
 /* Стили для вылетающих изображений */
 .slide-image {
   position: relative;
@@ -346,6 +342,15 @@ body {
 .hero-container.animated .right-image {
   opacity: 1;
   transform: translateX(-60vw);
+}
+.stock-container.animated .left-image {
+  opacity: 1;
+  transform: translateX(42vw);
+}
+
+.stock-container.animated .right-image {
+  opacity: 1;
+  transform: translateX(-42vw);
 }
 
 /* Следующая секция */
@@ -379,6 +384,15 @@ body {
   @include flex-center;
   font-size: 2rem;
   text-align: center;
+  overflow: hidden;
+  .slide-image {
+    position: relative;
+    width: 30vw;
+    object-fit: cover;
+    opacity: 0;
+    transition: transform 1.2s ease-out, opacity 1s ease-out;
+    z-index: 1;
+  }
 }
 
 .main-container {
