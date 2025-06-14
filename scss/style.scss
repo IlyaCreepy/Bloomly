@@ -297,7 +297,6 @@ body {
   &:active {
     transform: translateY(3px) scale(0.98);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background: darken($primary-color, 5%);
   }
 }
 
@@ -400,7 +399,7 @@ body {
   @include flex-center;
   font-size: 2rem;
   text-align: center;
-  padding: $header-height 20px 20px;
+  padding: 5vw;
 
   @media (max-width: 768px) {
     padding-top: $header-height-mobile;
@@ -418,5 +417,63 @@ body {
   .about-container,
   .main-container {
     font-size: 1.5rem;
+  }
+}
+.en {
+  position: relative;
+  overflow: hidden; /* Важно для корректного обрезания */
+}
+
+.hid {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: none; /* Отключаем стандартные переходы */
+  animation: smoothAppear 0.5s forwards;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+.en:hover .hid {
+  animation: smoothDisappear 0.6s forwards;
+}
+
+@keyframes smoothAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+    clip-path: inset(0 0 100% 0);
+  }
+  50% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes smoothDisappear {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
+  }
+  50% {
+    opacity: 0;
+    clip-path: inset(100% 0 0 0);
+  }
+  100% {
+    transform: translateY(30px);
+  }
+}
+.poster {
+  transition: all 0.3s ease;
+
+  &:hover {
+    scale: calc(1.01);
+  }
+
+  &:active {
+    transform: scale(0.95);
   }
 }

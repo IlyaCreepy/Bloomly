@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I dont`t care</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/author.css" />
+    <link rel="icon" type="image/x-icon" href="../img/icon.svg" />
+  </head>
+  <body style="color: black">
+    <header class="sticky-header">
+      <div class="header-container">
+        <div class="logo">
+          <img
+            src="../img/icon.svg"
+            style="
+              width: 4.5vw;
+              min-width: 35px;
+              aspect-ratio: 1;
+              cursor: pointer;
+            "
+            onclick="window.location.href = 'index.html'"
+          />
+        </div>
+        <nav class="desktop-nav" style="color: white">
+          <ul>
+            <li>
+              <a onclick="redirectToHomeAndClickButton('#main')">Главная</a>
+            </li>
+          </ul>
+        </nav>
+        <button class="burger-btn" aria-label="Меню" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+    <div class="mobile-menu">
+      <button class="close-btn" aria-label="Закрыть меню">
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <ul>
+          <li>
+            <a onclick="redirectToHomeAndClickButton('#main')">Главная</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div>
+      <a
+        class="back-link"
+        style="padding-top: 6vw; cursor: pointer"
+        onclick="window.history.back();"
+        >← Назад в каталог</a
+      >
+    </div>
+    <div class="author-header">
+      <h1 class="author-name" id="authorName"></h1>
+    </div>
+
+    <h2>Другие товары этого автора:</h2>
+    <div class="products-grid" id="productsGrid">
+      <!-- Товары будут добавлены через JavaScript -->
+    </div>
+
+    <script src="../scripts/author.js"></script>
+  </body>
+</html>
