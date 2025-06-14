@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../css/style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <title>Bloomly</title>
+    <link rel="icon" type="image/x-icon" href="../img/icon.svg" />
+  </head>
+  <body>
+    <header class="static-header">
+      <div class="header-container">
+        <div class="logo">
+          <a href="#main">
+            <img
+              src="../img/icon.svg"
+              style="width: 4.5vw; min-width: 35px; aspect-ratio: 1"
+          /></a>
+        </div>
+        <nav
+          class="desktop-nav"
+          style="text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5)"
+        >
+          <ul>
+            <li><a href="#main">Главная</a></li>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#stock">Акции</a></li>
+            <li><a href="#catalog">Каталог</a></li>
+            <li><a href="#message">Отзывы</a></li>
+            <li><a href="#feedback">Обратная связь</a></li>
+          </ul>
+        </nav>
+        <button class="burger-btn" aria-label="Меню" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <header class="sticky-header">
+      <div class="header-container">
+        <div class="logo">
+          <a href="#main">
+            <img
+              src="../img/icon.svg"
+              style="width: 4.5vw; min-width: 35px; aspect-ratio: 1"
+          /></a>
+        </div>
+        <nav class="desktop-nav">
+          <ul>
+            <li><a href="#main">Главная</a></li>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#stock">Акции</a></li>
+            <li><a href="#catalog">Каталог</a></li>
+            <li><a href="#message">Отзывы</a></li>
+            <li><a href="#feedback">Обратная связь</a></li>
+          </ul>
+        </nav>
+        <button class="burger-btn" aria-label="Меню" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-menu">
+      <button class="close-btn" aria-label="Закрыть меню">
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <ul>
+          <li><a href="#main">Главная</a></li>
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#stock">Акции</a></li>
+          <li><a href="#catalog">Каталог</a></li>
+          <li><a href="#message">Отзывы</a></li>
+          <li><a href="#feedback">Обратная связь</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <main>
+      <section class="hero-container" id="main">
+        <img src="../img/left.png" class="slide-image left-image" />
+        <img src="../img/right.png" class="slide-image right-image" />
+      </section>
+      <section class="about-container" id="about"></section>
+      <section class="stock-container" id="stock">
+        <img src="../img/stock-left.png" class="slide-image left-image" />
+        <img src="../img/stock-right.png" class="slide-image right-image" />
+        <div class="btn-buy-now">Купить сейчас</div>
+      </section>
+      <section class="main-container">
+        <div>
+          <div>
+            <img
+              src="../img/catalog.png"
+              style="width: 20vw; padding-left: 4.5vw"
+            />
+          </div>
+          <section class="catalog-container" id="catalog">
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                grid-template-rows: repeat(2, minmax(0, 1fr));
+                gap: 2vw;
+                width: 80vw;
+                height: 45vw;
+                box-sizing: border-box;
+                margin: 0 auto;
+                position: relative;
+              "
+            >
+              <!-- Блок 1 (A1 + A2) -->
+              <div
+                style="
+                  grid-column: 1;
+                  grid-row: 1 / span 2;
+                  width: 100%;
+                  height: 100%;
+                  overflow: hidden;
+                "
+                class="poster"
+              >
+                <a href="#plants">
+                  <img
+                    src="../img/first_catalog.png"
+                    alt="Декор"
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      object-fit: cover;
+                      object-position: center;
+                    "
+                /></a>
+              </div>
+
+              <!-- Блок 2 (B1 + C1) -->
+              <div
+                style="
+                  grid-column: 2 / span 2;
+                  grid-row: 1;
+                  width: 100%;
+                  height: 100%;
+                  overflow: hidden;
+                "
+                class="poster"
+              >
+                <a href="#decor">
+                  <img
+                    src="../img/second_catalog.png"
+                    alt="Растения"
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      object-fit: cover;
+                      object-position: center;
+                    "
+                /></a>
+              </div>
+
+              <!-- Блок 3 (B2 + C2) -->
+              <div
+                style="
+                  grid-column: 2 / span 2;
+                  grid-row: 2;
+                  width: 100%;
+                  height: 100%;
+                  overflow: hidden;
+                "
+                class="poster"
+              >
+                <a href="#pots">
+                  <img
+                    src="../img/third_catalog.png"
+                    alt="Горшки"
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      object-fit: cover;
+                      object-position: center;
+                    "
+                /></a>
+              </div>
+            </div>
+          </section>
+          <div>
+            <div id="plants">
+              <img
+                src="../img/plants.png"
+                style="width: 20vw; padding-left: 3vw"
+              />
+            </div>
+            <div
+              id="products-container-1"
+              style="
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                gap: 2vw;
+                padding: 16px;
+                max-width: 1600px;
+                margin: 0 auto;
+                padding: 3vw;
+                margin-bottom: 1vw;
+                margin-top: 0;
+              "
+            ></div>
+            <div id="decor">
+              <img
+                src="../img/succulents.png"
+                style="width: 20vw; padding-right: 5vw"
+              />
+            </div>
+
+            <div
+              id="products-container-2"
+              style="
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                gap: 2vw;
+                padding: 16px;
+                max-width: 1600px;
+                margin: 0 auto;
+                padding: 3vw;
+                margin-top: 0;
+              "
+            ></div>
+            <div id="pots">
+              <img
+                src="../img/pots.png"
+                style="width: 20vw; padding-right: 7vw"
+              />
+            </div>
+            <div
+              id="products-container-3"
+              style="
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                gap: 2vw;
+                padding: 16px;
+                max-width: 1600px;
+                margin: 0 auto;
+                padding: 3vw;
+                margin-top: 0;
+              "
+            ></div>
+            <div id="message">
+              <img
+                src="../img/feedback.png"
+                style="width: 20vw; padding-left: 3vw"
+              />
+            </div>
+            <div
+              style="
+                width: 85vw;
+                background-color: white;
+                border-radius: 2vw;
+                box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
+                padding: 3vw;
+                place-self: center;
+                margin-top: 3vw;
+                text-align: left;
+              "
+            >
+              <h3 style="margin: 0 0 0 1vw; color: #333; font-size: 2vw">
+                Оцените и оставьте комментарий
+              </h3>
+              <div
+                id="stars"
+                style="font-size: 2vw; margin-bottom: 1vw; margin-left: 1vw"
+              >
+                <span style="cursor: pointer; color: #ffe2ea" onclick="rate(1)"
+                  >☆</span
+                >
+                <span style="cursor: pointer; color: #ffe2ea" onclick="rate(2)"
+                  >☆</span
+                >
+                <span style="cursor: pointer; color: #ffe2ea" onclick="rate(3)"
+                  >☆</span
+                >
+                <span style="cursor: pointer; color: #ffe2ea" onclick="rate(4)"
+                  >☆</span
+                >
+                <span style="cursor: pointer; color: #ffe2ea" onclick="rate(5)"
+                  >☆</span
+                >
+              </div>
+
+              <textarea
+                style="
+                  width: 82vw;
+                  height: 7vw;
+                  padding: 1.5vw;
+                  border: 1px solid #ddd;
+                  border-radius: 2vw;
+                  resize: none;
+                  margin-bottom: 1vw;
+                  place-self: center;
+                  font-size: 1.2vw;
+                "
+                placeholder="Ваш комментарий..."
+              ></textarea>
+
+              <div style="text-align: right">
+                <button
+                  type="submit"
+                  style="
+                    padding: 1vw 2vw;
+                    background-color: #ffe2ea;
+                    color: #333;
+                    border: none;
+                    border-radius: 2vw;
+                    cursor: pointer;
+                    font-size: 2vw;
+                    transition: all 0.3s ease;
+                    transform: scale(1);
+                  "
+                  onmousedown="this.style.transform='scale(0.95)'"
+                  onmouseup="this.style.transform='scale(1)'"
+                  onmouseleave="this.style.transform='scale(1)'"
+                >
+                  Отправить →
+                </button>
+              </div>
+            </div>
+
+            <script>
+              let currentRating = 0;
+
+              function rate(rating) {
+                currentRating = rating;
+                const stars = document.getElementById("stars").children;
+
+                for (let i = 0; i < stars.length; i++) {
+                  stars[i].textContent = i < rating ? "★" : "☆";
+                  stars[i].style.color = "#FFE2EA";
+                }
+              }
+            </script>
+            <div
+              style="
+                width: 85vw;
+                background-color: white;
+                border-radius: 2vw;
+                box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
+                padding: 3vw;
+                place-self: center;
+                margin-top: 3vw;
+                text-align: left;
+              "
+            >
+              <h3 style="margin: 0 0 2vw 1vw; color: #333; font-size: 2vw">
+                Отзывы наших клиентов
+              </h3>
+
+              <!-- Отзыв 1 -->
+              <div
+                style="
+                  margin-bottom: 3vw;
+                  padding: 2vw;
+                  background: #fff9fb;
+                  border-radius: 2vw;
+                  box-shadow: 0 0.3vw 0.6vw rgba(0, 0, 0, 0.05);
+                "
+              >
+                <div
+                  style="display: flex; align-items: center; margin-bottom: 1vw"
+                >
+                  <div
+                    style="
+                      width: 4vw;
+                      height: 4vw;
+                      background-color: #ffe2ea;
+                      border-radius: 50%;
+                      margin-right: 2vw;
+                    "
+                  ></div>
+                  <div style="font-weight: bold; color: #333; font-size: 1.8vw">
+                    Екатерина М.
+                  </div>
+                </div>
+                <div style="color: #555; font-size: 1.5vw; margin-bottom: 1vw">
+                  Заказывала комнатные растения, все пришло в отличном
+                  состоянии. Особенно понравился сервис - быстро отвечают на
+                  вопросы!
+                </div>
+                <div style="color: #ffb6c1; font-size: 1.8vw">★★★★★</div>
+              </div>
+
+              <!-- Отзыв 2 -->
+              <div
+                style="
+                  margin-bottom: 3vw;
+                  padding: 2vw;
+                  background: #fff9fb;
+                  border-radius: 2vw;
+                  box-shadow: 0 0.3vw 0.6vw rgba(0, 0, 0, 0.05);
+                "
+              >
+                <div
+                  style="display: flex; align-items: center; margin-bottom: 1vw"
+                >
+                  <div
+                    style="
+                      width: 4vw;
+                      height: 4vw;
+                      background-color: #ffe2ea;
+                      border-radius: 50%;
+                      margin-right: 2vw;
+                    "
+                  ></div>
+                  <div style="font-weight: bold; color: #333; font-size: 1.8vw">
+                    Алексей К.
+                  </div>
+                </div>
+                <div style="color: #555; font-size: 1.5vw; margin-bottom: 1vw">
+                  Качественные горшки, как на фото. Доставка заняла чуть больше
+                  времени, чем обещали, но в целом все ок.
+                </div>
+                <div style="color: #ffb6c1; font-size: 1.8vw">★★★★☆</div>
+              </div>
+
+              <!-- Отзыв 3 -->
+              <div
+                style="
+                  margin-bottom: 3vw;
+                  padding: 2vw;
+                  background: #fff9fb;
+                  border-radius: 2vw;
+                  box-shadow: 0 0.3vw 0.6vw rgba(0, 0, 0, 0.05);
+                "
+              >
+                <div
+                  style="display: flex; align-items: center; margin-bottom: 1vw"
+                >
+                  <div
+                    style="
+                      width: 4vw;
+                      height: 4vw;
+                      background-color: #ffe2ea;
+                      border-radius: 50%;
+                      margin-right: 2vw;
+                    "
+                  ></div>
+                  <div style="font-weight: bold; color: #333; font-size: 1.8vw">
+                    Ольга С.
+                  </div>
+                </div>
+                <div style="color: #555; font-size: 1.5vw; margin-bottom: 1vw">
+                  Прекрасный декор для дома! Все элементы хорошо упакованы, не
+                  было ни одного повреждения. Обязательно закажу еще что-нибудь!
+                </div>
+                <div style="color: #ffb6c1; font-size: 1.8vw">★★★★★</div>
+              </div>
+
+              <!-- Кнопка для нового отзыва -->
+              <div style="text-align: center; margin-top: 2vw">
+                <a href="#message">
+                  <button
+                    style="
+                      padding: 1vw 3vw;
+                      background-color: #ffe2ea;
+                      color: #333;
+                      border: none;
+                      border-radius: 2vw;
+                      cursor: pointer;
+                      font-size: 1.8vw;
+                      transition: all 0.3s ease;
+                    "
+                    onmouseover="this.style.backgroundColor='#ffd1dc'"
+                    onmouseout="this.style.backgroundColor='#ffe2ea'"
+                  >
+                    Оставить отзыв →
+                  </button></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer
+      style="
+        width: 100%;
+        background-color: white;
+        border-radius: 2vw 2vw 0 0;
+        box-shadow: 0 -0.5vw 1vw rgba(0, 0, 0, 0.1);
+        padding: 3vw 0 0;
+        text-align: center;
+        margin-top: auto; /* Это важно для прижатия к низу */
+      "
+    >
+      <nav
+        style="
+          display: flex;
+          justify-content: space-around;
+          margin-bottom: 3vw;
+          flex-wrap: wrap;
+        "
+      >
+        <a
+          href="#"
+          style="
+            color: #333;
+            text-decoration: none;
+            font-size: 1.8vw;
+            padding: 1vw 2vw;
+            transition: all 0.3s ease;
+          "
+          onmouseover="this.style.color='#ff6b88'"
+          onmouseout="this.style.color='#333'"
+          >Главная</a
+        >
+        <a
+          href="#about"
+          style="
+            color: #333;
+            text-decoration: none;
+            font-size: 1.8vw;
+            padding: 1vw 2vw;
+            transition: all 0.3s ease;
+          "
+          onmouseover="this.style.color='#ff6b88'"
+          onmouseout="this.style.color='#333'"
+          >О нас</a
+        >
+        <a
+          href="#stock"
+          style="
+            color: #333;
+            text-decoration: none;
+            font-size: 1.8vw;
+            padding: 1vw 2vw;
+            transition: all 0.3s ease;
+          "
+          onmouseover="this.style.color='#ff6b88'"
+          onmouseout="this.style.color='#333'"
+          >Акции</a
+        >
+        <a
+          href="#catalog"
+          style="
+            color: #333;
+            text-decoration: none;
+            font-size: 1.8vw;
+            padding: 1vw 2vw;
+            transition: all 0.3s ease;
+          "
+          onmouseover="this.style.color='#ff6b88'"
+          onmouseout="this.style.color='#333'"
+          >Каталог</a
+        >
+        <a
+          href="#feedback"
+          style="
+            color: #333;
+            text-decoration: none;
+            font-size: 1.8vw;
+            padding: 1vw 2vw;
+            transition: all 0.3s ease;
+          "
+          onmouseover="this.style.color='#ff6b88'"
+          onmouseout="this.style.color='#333'"
+          >Отзывы</a
+        >
+      </nav>
+
+      <div
+        style="
+          border-top: 0.1vw solid #ffe2ea;
+          padding: 2vw 0;
+          color: #555;
+          font-size: 1.5vw;
+          background: #fff9fb;
+        "
+      >
+        <p style="margin: 0.5vw 0">+7 (123) 456-78-90</p>
+        <p style="margin: 0.5vw 0">example@mail.com</p>
+        <p style="margin: 1.5vw 0 0 0" id="feedback">
+          © 2025 Bloomly. Все права защищены
+        </p>
+      </div>
+      <div
+        style="
+          background: #fff9fb;
+          padding: 3vw;
+          margin: 0 5vw 3vw;
+          border-radius: 2vw;
+          box-shadow: 0 0.3vw 0.6vw rgba(0, 0, 0, 0.05);
+        "
+      >
+        <h3 style="margin: 0 0 2vw; color: #333; font-size: 2.2vw">
+          Обратная связь
+        </h3>
+
+        <form style="display: grid; gap: 1.5vw" action="/templates/#feedback">
+          <input
+            type="text"
+            placeholder="Ваше имя"
+            style="
+              padding: 1.5vw;
+              border: 1px solid #ffe2ea;
+              border-radius: 2vw;
+              font-size: 1.5vw;
+              outline: none;
+            "
+          />
+
+          <input
+            type="email"
+            placeholder="Ваш email"
+            style="
+              padding: 1.5vw;
+              border: 1px solid #ffe2ea;
+              border-radius: 2vw;
+              font-size: 1.5vw;
+              outline: none;
+            "
+          />
+
+          <textarea
+            placeholder="Ваше сообщение"
+            style="
+              padding: 1.5vw;
+              border: 1px solid #ffe2ea;
+              border-radius: 2vw;
+              font-size: 1.5vw;
+              height: 10vw;
+              resize: none;
+              outline: none;
+            "
+          ></textarea>
+          <button
+            type="submit"
+            style="
+              padding: 1.5vw;
+              background-color: #ffe2ea;
+              color: #333;
+              border: none;
+              border-radius: 2vw;
+              font-size: 1.8vw;
+              cursor: pointer;
+              transition: all 0.3s ease;
+            "
+            onmouseover="this.style.backgroundColor='#ffd1dc'"
+            onmouseout="this.style.backgroundColor='#ffe2ea'"
+          >
+            Отправить →
+          </button>
+        </form>
+      </div>
+    </footer>
+    <script src="../scripts/script.js"></script>
+  </body>
+</html>
