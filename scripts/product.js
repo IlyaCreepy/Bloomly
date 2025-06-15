@@ -36,7 +36,7 @@ function renderProductPage(data) {
   const carouselIndicators = document.getElementById("carouselIndicators");
 
   // Создаем массив изображений (только переданное фото)
-  const images = [data.image, data.image, data.image, data.image];
+  const images = [data.image[0], data.image[1]];
 
   // Очищаем карусель
   carouselInner.innerHTML = "";
