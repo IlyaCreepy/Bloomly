@@ -1,9 +1,20 @@
-body {
+body.author-page {
   font-family: "Arial", sans-serif;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9;
+  color: #333;
+}
+
+.logo-icon {
+  width: clamp(35px, 4.5vw, 60px);
+  aspect-ratio: 1;
+  cursor: pointer;
+}
+
+.desktop-nav a {
+  color: white;
 }
 
 .author-header {
@@ -59,8 +70,10 @@ body {
 
 .back-link {
   display: inline-block;
+  margin-top: clamp(24px, 6vw, 80px);
   margin-bottom: 30px;
   color: #829671;
   text-decoration: none;
   font-weight: bold;
+  cursor: pointer;
 }

@@ -3,27 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>I dont`t care</title>
+    <title>Bloomly — Автор</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/author.css" />
     <link rel="icon" type="image/x-icon" href="../img/icon.svg" />
   </head>
-  <body style="color: black">
+  <body class="author-page">
     <header class="sticky-header">
       <div class="header-container">
         <div class="logo">
           <img
             src="../img/icon.svg"
-            style="
-              width: 4.5vw;
-              min-width: 35px;
-              aspect-ratio: 1;
-              cursor: pointer;
-            "
+            class="logo-icon"
             onclick="window.location.href = 'index.html'"
           />
         </div>
-        <nav class="desktop-nav" style="color: white">
+        <nav class="desktop-nav">
           <ul>
             <li>
               <a onclick="redirectToHomeAndClickButton('#main')">Главная</a>
@@ -53,7 +48,6 @@
     <div>
       <a
         class="back-link"
-        style="padding-top: 6vw; cursor: pointer"
         onclick="window.history.back();"
         >← Назад в каталог</a
       >
