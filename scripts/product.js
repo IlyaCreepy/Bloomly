@@ -56,65 +56,88 @@ function renderProductPage(data) {
     carouselIndicators.appendChild(indicator);
   });
 
-  // Генерация характеристик
-  let characteristicsHTML = "";
+  // Генерация характеристик (DOM-safe, no innerHTML with user data)
+  const characteristicsContainer = document.createElement("div");
+  characteristicsContainer.className = "characteristics";
 
-  // Всегда добавляем артикул (равный id)
-  characteristicsHTML += `
-                <div class="characteristic-row">
-                    <div class="characteristic-name">Артикул</div>
-                    <div class="characteristic-value">
-                        #${data.id}
-                        <i class="fas fa-copy copy-icon" title="Скопировать артикул"></i>
-                    </div>
-                </div>
-            `;
+  const makeCharRow = (name, value, withCopyIcon = false) => {
+    const row = document.createElement("div");
+    row.className = "characteristic-row";
+    const nameEl = document.createElement("div");
+    nameEl.className = "characteristic-name";
+    nameEl.textContent = name;
+    const valueEl = document.createElement("div");
+    valueEl.className = "characteristic-value";
+    valueEl.textContent = value;
+    if (withCopyIcon) {
+      const icon = document.createElement("i");
+      icon.className = "fas fa-copy copy-icon";
+      icon.title = "Скопировать артикул";
+      valueEl.appendChild(icon);
+    }
+    row.appendChild(nameEl);
+    row.appendChild(valueEl);
+    return row;
+  };
 
-  // Добавляем остальные характеристики
+  characteristicsContainer.appendChild(makeCharRow("Артикул", `#${data.id}`, true));
   if (data.characteristic) {
     for (const [key, value] of Object.entries(data.characteristic)) {
-      characteristicsHTML += `
-                        <div class="characteristic-row">
-                            <div class="characteristic-name">${key}</div>
-                            <div class="characteristic-value">${value}</div>
-                        </div>
-                    `;
+      characteristicsContainer.appendChild(makeCharRow(key, value));
     }
   }
 
-  // Создаем HTML структуру для деталей товара
+  // Build product details safely using DOM APIs (prevents XSS from URL params)
   const productDetails = document.getElementById("productDetails");
-  productDetails.innerHTML = `
-                <h1 class="product-title">${data.name}, Florian</h1>
+  productDetails.innerHTML = "";
 
-                  <a href="author.html?name=${encodeURIComponent([
-                    data.author.name,
-                    data.author.id,
-                    data.id,
-                  ])}" 
-     class="author-link">${data.author.name}</a>
+  const title = document.createElement("h1");
+  title.className = "product-title";
+  title.textContent = `${data.name}, Florian`;
 
-                <div class="color-section">
-                    <div class="color-label">Цвет:</div>
-                    <div class="color-box" style="background-color: ${
-                      data.color
-                    };"></div>
-                    <div>${data.colorName}</div>
-                </div>
+  const authorLink = document.createElement("a");
+  authorLink.className = "author-link";
+  authorLink.href = `author.html?name=${encodeURIComponent([data.author.name, data.author.id, data.id])}`;
+  authorLink.textContent = data.author.name;
 
-                <div class="characteristics">
-                    ${characteristicsHTML}
-                </div>
+  const colorSection = document.createElement("div");
+  colorSection.className = "color-section";
+  const colorLabel = document.createElement("div");
+  colorLabel.className = "color-label";
+  colorLabel.textContent = "Цвет:";
+  const colorBox = document.createElement("div");
+  colorBox.className = "color-box";
+  colorBox.style.backgroundColor = data.color;
+  const colorName = document.createElement("div");
+  colorName.textContent = data.colorName;
+  colorSection.appendChild(colorLabel);
+  colorSection.appendChild(colorBox);
+  colorSection.appendChild(colorName);
 
-                <div class="description">
-                    <h3>Описание</h3>
-                    <p>${data.description}</p>
-                </div>
+  const description = document.createElement("div");
+  description.className = "description";
+  const descTitle = document.createElement("h3");
+  descTitle.textContent = "Описание";
+  const descText = document.createElement("p");
+  descText.textContent = data.description;
+  description.appendChild(descTitle);
+  description.appendChild(descText);
 
-                <div class="product-price">${data.price}</div>
+  const price = document.createElement("div");
+  price.className = "product-price";
+  price.textContent = data.price;
 
-                <button class="buy-button">Купить</button>
-            `;
+  const buyButton = document.createElement("button");
+  buyButton.className = "buy-button";
+  buyButton.textContent = "Купить";
+
+  productDetails.appendChild(title);
+  productDetails.appendChild(authorLink);
+  productDetails.appendChild(colorSection);
+  productDetails.appendChild(characteristicsContainer);
+  productDetails.appendChild(description);
+  productDetails.appendChild(price);
+  productDetails.appendChild(buyButton);
 
   // Добавляем обработчики событий
   initEventHandlers();
